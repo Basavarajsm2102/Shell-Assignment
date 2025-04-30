@@ -30,3 +30,29 @@ The script should prompt the user to input the following values:
 
 - The script must **validate each input** — users can only enter allowed values.
 - It will then **search the `sig.conf` file** for a line that matches:
+
+- It should **update only the first matching line** and change the number after `vdopia-etl=` to the user's `count`.
+- All other lines must remain unchanged.
+
+---
+
+## 📄 Example
+
+Given a `sig.conf` file like:
+
+
+If the user enters:
+
+- Component: `INGESTOR`  
+- Scale: `MID`  
+- View: `Auction`  
+- Count: `7`  
+
+The updated `sig.conf` file becomes:
+
+
+---
+
+## ✅ Summary
+
+This script ensures clean, validated configuration updates while maintaining the integrity of the rest of the file. Only the **first matching line** is ever changed, making it safe for use in environments where multiple similar lines may exist.
